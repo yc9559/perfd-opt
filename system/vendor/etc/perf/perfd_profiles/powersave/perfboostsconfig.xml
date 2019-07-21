@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+/* Copyright (c) 2017 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+-->
+
+<!--Ids are used in identifying the boosts, increment ids linearly,
+    do not modify Ids, or add in between-->
+<!--follow the number format rules while specifying number, can be given
+    in any format-->
+
+<BoostConfigs>
+    <PerfBoost>
+
+    <!--app lauch boost-->
+    <Config
+        Id="0x00001081" Type="1" Enable="true" Timeout="500" Target="msmnile"
+        Resources="0x40804000, 2000, 0x40804100, 0xFFF, 0x40804200, 2600, 0x40C18000, 65, 0x40C40000, 127, 0x41000000, 3, 0x40400000, 1, 0x42C10000, 1, 0x41800000, 0xFF, 0x43000000, 0xFF, 0x43400000, 0xFFFF" />
+
+    <!--app lauch boost sustained-->
+    <Config
+        Id="0x00001081" Type="2" Enable="true" Timeout="2000" Target="msmnile"
+        Resources="0x40804000, 1800, 0x40804100, 0xFFF, 0x40804200, 2400, 0x40C18000, 50, 0x40C40000, 127, 0x41000000, 3, 0x40400000, 1, 0x42C10000, 1, 0x41800000, 80, 0x43000000, 58, 0x43400000, 13440" />
+
+    <!-- config_enableLaunchBoostv2-->
+    <Config
+        Id="0x00001081" Type="3" Enable="true" Timeout="15000" Target="msmnile"
+        Resources="0x40C00000, 3, 0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60,0x40C20200, 40, 0x40C1C200, 60" />
+
+    <!-- config_gameBoost-->
+    <Config
+        Id="0x00001081" Type="4" Enable="true" Timeout="15000" Target="msmnile"
+        Resources="0x40C00000, 3, 0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60,0x40C20200, 40, 0x40C1C200, 60, 0x42C10000, 1,0x40800200, 1600, 0x40800000, 1600, 0x40800100, 1200, 0x41800000, 80, 0x43000000, 58, 0x43400000, 13440" />
+
+    <!--Vertical Scroll boost-->
+    <Config
+        Id="0x00001080" Type="1" Enable="true" Target="msmnile"
+        Resources="0x40804000, 1600, 0x40800000, 800, 0x40800100, 800, 0x40C00000, 2, 0x40C18000, 0, 0x40C60000, 1, 0x40C54000, 400, 0x40C1C000, 400, 0x40C3C000, 127, 0x43000000, 25, 0x43400000, 14000" />
+
+    <!--Prefling Scroll boost-->
+    <Config
+        Id="0x00001080" Type="4" Enable="true" Timeout="80" Target="msmnile"
+        Resources="0x40C00000, 2" />
+
+    <!--Horizontal Scroll boost-->
+    <Config
+        Id="0x00001080" Type="2" Enable="true" Target="msmnile"
+        Resources="0x40C00000, 2" />
+
+	<!--MTP boost-->
+    <Config
+        Id="0x00001086" Enable="true" Target="msmnile"
+        Resources="0x40C00000, 0x1, 0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40800000, 1400, 0x40800100, 1400, 0x40C40000, 127" />
+
+    <!--Drag boost-->
+    <Config
+        Id="0x00001087" Type="1" Enable="true" Timeout="0" Target="msmnile"
+        Resources="0x40804000, 2000, 0x40800000, 800, 0x40800100, 800, 0x40C00000, 2, 0x40C18000, 10, 0x40C60000, 1, 0x41000000, 3, 0x40C3C000, 112, 0x40C40000, 112, 0x43000000, 55, 0x43400000, 16000" />
+
+    <!--PackageInstall boost-->
+    <Config
+        Id="0x00001088" Enable="true" Target="msmnile"
+        Resources="0x40C00000, 1, 0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40804200, 0xFFF,0x40800000, 0xFFF, 0x40800100, 0xFFF, 0x40800200, 0xFFF" />
+
+    <!--Rotation latency boost-->
+    <Config
+        Id="0x00001089" Enable="true" Timeout="1500" Target="msmnile"
+        Resources="0x40C00000, 0x1, 0x40804000, 2000, 0x40804100, 0xFFF, 0x40804200, 2400,0x40800000, 1600, 0x40800100, 0xFFF, 0x40800200, 1600" />
+
+    <!--Rotation animation boost-->
+    <Config
+        Id="0x00001090" Enable="true" Timeout="1000" Target="msmnile"
+        Resources="0x40800100, 1500, 0x4280C000, 596, 0x41800000, 80, 0x43000000, 58, 0x43400000, 13440" />
+
+    </PerfBoost>
+</BoostConfigs>

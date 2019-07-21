@@ -1,0 +1,7 @@
+id=sdm855-tune
+name=sdm855-tune
+version=20190721
+versionCode=1
+author=Matt Yang
+description=GitHub: https://github.com/yc9559/sdm855-tune/
+minMagisk=17000
