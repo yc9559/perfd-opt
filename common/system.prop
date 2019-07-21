@@ -1,9 +1,3 @@
 # This file will be read by resetprop
 # Example: Change dpi
 # ro.sf.lcd_density=320
-# persist.sys.force_sw_gles=0
-# debug.sf.hw=0
-# debug.egl.hw=0
-# debug.composition.type=dyn
-# persist.sys.composition.type=dyn
-# persist.hwc.dyncomp.enable=true

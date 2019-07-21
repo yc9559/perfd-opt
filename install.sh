@@ -121,10 +121,11 @@ REPLACE=""
 # Set what you want to display when installing your module
 
 print_modname() {
-  ui_print "sdm855-tune https://github.com/yc9559/sdm855-tune/"
+  ui_print ""
+  ui_print "Perfd-opt https://github.com/yc9559/perfd-opt/"
   ui_print "Author: Matt Yang"
-  ui_print "Platform: sdm855"
-  ui_print "Version: 20190721"
+  ui_print "Version: v1 (20190721)"
+  ui_print ""
 }
 
 # Copy/extract your module files into $MODPATH in on_install.
@@ -132,8 +133,20 @@ print_modname() {
 on_install() {
   # The following is the default implementation: extract $ZIPFILE/system to $MODPATH
   # Extend/change the logic to whatever you want
-  ui_print "- Extracting module files"
-  unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
+  target=`getprop ro.board.platform`
+  ui_print "- The platform of this device is ${target}"
+
+  case "${target}" in
+  "msmnile")
+    ui_print "- Extracting module files"
+    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
+    mv $MODPATH/profiles/sdm855/system $MODPATH/
+    rm -r $MODPATH/profiles
+  ;;
+  *)
+    abort "- ${target} not supported, terminated."
+  ;;
+  esac
 }
 
 # Only some special files require specific permissions

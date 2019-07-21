@@ -1,7 +1,7 @@
-id=sdm855-tune
-name=sdm855-tune
-version=20190721
+id=perfd-opt
+name=Perfd-opt
+version=v1 (20190721)
 versionCode=1
 author=Matt Yang
-description=GitHub: https://github.com/yc9559/sdm855-tune/
+description=Provide better energy efficiency on EAS platforms by tuning CAF boostframework configuration. Repo: https://github.com/yc9559/perfd-opt/
 minMagisk=17000
