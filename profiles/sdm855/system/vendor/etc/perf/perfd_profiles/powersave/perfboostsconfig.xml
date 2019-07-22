@@ -33,7 +33,7 @@
 
     <!--Vertical Scroll boost-->
     <Config Id="0x00001080" Type="1" Enable="true" Target="msmnile"
-        Resources="0x40804000, 1600, 0x40800000, 800, 0x40800100, 800, 0x40C00000, 2, 0x40C18000, 0, 0x40C60000, 1, 0x40C54000, 400, 0x40C1C000, 400, 0x40C3C000, 127, 0x43000000, 25, 0x43400000, 14000" />
+        Resources="0x40804000, 1600, 0x40800000, 800, 0x40800100, 1000, 0x40C00000, 2, 0x40C18000, 0, 0x40C60000, 1, 0x40C54000, 400, 0x40C1C000, 400, 0x40C3C000, 127, 0x43000000, 28, 0x43400000, 14000" />
 
     <!--Prefling Scroll boost-->
     <Config Id="0x00001080" Type="4" Enable="true" Timeout="80" Target="msmnile"
@@ -49,7 +49,7 @@
 
     <!--Drag boost-->
     <Config Id="0x00001087" Type="1" Enable="true" Timeout="0" Target="msmnile"
-        Resources="0x40804000, 2000, 0x40800000, 800, 0x40800100, 800, 0x40C00000, 2, 0x40C18000, 10, 0x40C60000, 1, 0x41000000, 3, 0x40C3C000, 112, 0x40C40000, 112, 0x43000000, 55, 0x43400000, 16000" />
+        Resources="0x40804000, 2000, 0x40800000, 800, 0x40800100, 1000, 0x40C00000, 2, 0x40C18000, 10, 0x40C60000, 1, 0x41000000, 3, 0x40C3C000, 240, 0x40C40000, 31, 0x43000000, 55, 0x43400000, 16000" />
 
     <!--PackageInstall boost-->
     <Config Id="0x00001088" Enable="true" Target="msmnile"
