@@ -141,7 +141,13 @@ on_install() {
     ui_print "- Extracting module files"
     unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
     mv $MODPATH/profiles/sdm855/system $MODPATH/
-    rm -r $MODPATH/profiles
+    rm -rf $MODPATH/profiles
+  ;;
+  "sdm845")
+    ui_print "- Extracting module files"
+    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
+    mv $MODPATH/profiles/sdm845/system $MODPATH/
+    rm -rf $MODPATH/profiles
   ;;
   *)
     abort "- ${target} not supported, terminated."
