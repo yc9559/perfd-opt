@@ -149,6 +149,12 @@ on_install() {
     mv $MODPATH/profiles/sdm845/system $MODPATH/
     rm -rf $MODPATH/profiles
   ;;
+  "sm6150")
+    ui_print "- Extracting module files"
+    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
+    mv $MODPATH/profiles/sdm675_730/system $MODPATH/
+    rm -rf $MODPATH/profiles
+  ;;
   *)
     abort "- ${target} not supported, terminated."
   ;;
