@@ -86,7 +86,7 @@ apply_common()
     # move all task not in any cgroup to system_background
     for non_tid in `cat /dev/cpuset/tasks`
     do
-        echo ${non_tid} > /dev/cpuset/system-background/tasks
+        echo ${non_tid} > /dev/cpuset/foreground/tasks
         echo ${non_tid} > /dev/stune/background/tasks
     done
 
