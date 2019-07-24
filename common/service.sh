@@ -4,3 +4,4 @@
 MODDIR=${0%/*}
 
 /vendor/bin/sh $MODDIR/system/vendor/bin/powercfg.sh
+/vendor/bin/sh $MODDIR/system/vendor/bin/powercfg_once.sh
