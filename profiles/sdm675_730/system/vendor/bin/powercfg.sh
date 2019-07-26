@@ -60,6 +60,9 @@ read_cfg_value()
 
 apply_common()
 {
+    # prevent foreground using big cluster, may be override
+    mutate "0-5" /dev/cpuset/foreground/cpus
+
     # tend to online more cores to balance parallel tasks
     mutate "15" /sys/devices/system/cpu/cpu6/core_ctl/busy_up_thres
     mutate "5" /sys/devices/system/cpu/cpu6/core_ctl/busy_down_thres

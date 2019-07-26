@@ -42,9 +42,6 @@ do
     echo ${non_tid} > /dev/stune/background/tasks
 done
 
-# prevent foreground using big cluster, may be override
-mutate "0-3" /dev/cpuset/foreground/cpus
-
 # treat crtc_commit as display
 change_task_cgroup "crtc_commit" "display" "cpuset"
 
@@ -96,6 +93,9 @@ lock_val "0" /sys/class/kgsl/kgsl-3d0/force_rail_on
 
 # zram doesn't need much read ahead(random read)
 lock_val "4" /sys/block/zram0/queue/read_ahead_kb
+
+# prefer to use cpu4 & cpu5
+lock_val "0 0 1 1" /sys/devices/system/cpu/cpu4/core_ctl/not_preferred
 
 # suppress stderr
 ) 2> /dev/null

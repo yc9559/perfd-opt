@@ -60,6 +60,9 @@ read_cfg_value()
 
 apply_common()
 {
+    # prevent foreground using big cluster, may be override
+    mutate "0-3" /dev/cpuset/foreground/cpus
+
     # turn off hotplug to reduce latency
     lock_val "0" /sys/devices/system/cpu/cpu0/core_ctl/enable
     # tend to online more cores to balance parallel tasks

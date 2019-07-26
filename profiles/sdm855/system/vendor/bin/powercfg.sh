@@ -61,6 +61,9 @@ read_cfg_value()
 
 apply_common()
 {
+    # prevent foreground using big cluster, may be override
+    mutate "0-3" /dev/cpuset/foreground/cpus
+
     # task_util(p) = p->ravg.demand_scaled <= sysctl_sched_min_task_util_for_boost
     mutate "16" /proc/sys/kernel/sched_min_task_util_for_boost
     mutate "96" /proc/sys/kernel/sched_min_task_util_for_colocation

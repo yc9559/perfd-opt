@@ -42,9 +42,6 @@ do
     echo ${non_tid} > /dev/stune/background/tasks
 done
 
-# prevent foreground using big cluster, may be override
-mutate "0-5" /dev/cpuset/foreground/cpus
-
 # treat crtc_commit as display
 change_task_cgroup "crtc_commit" "display" "cpuset"
 
