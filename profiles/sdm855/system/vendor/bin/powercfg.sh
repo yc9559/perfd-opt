@@ -65,7 +65,7 @@ apply_common()
     mutate "0-3" /dev/cpuset/foreground/cpus
 
     # task_util(p) = p->ravg.demand_scaled <= sysctl_sched_min_task_util_for_boost
-    mutate "16" /proc/sys/kernel/sched_min_task_util_for_boost
+    mutate "31" /proc/sys/kernel/sched_min_task_util_for_boost
     mutate "96" /proc/sys/kernel/sched_min_task_util_for_colocation
     # normal colocation util report
     mutate "1000000" /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz
@@ -115,9 +115,9 @@ apply_powersave()
     mutate "0" /dev/stune/top-app/schedtune.boost
     mutate "0" /dev/stune/top-app/schedtune.prefer_idle
 
-    lock_val "0:1632000 4:0 7:0" /sys/module/cpu_boost/parameters/input_boost_freq
-    lock_val "300" /sys/module/cpu_boost/parameters/input_boost_ms
-    lock_val "0" /sys/module/cpu_boost/parameters/sched_boost_on_input
+    lock_val "0:1113600 4:825600 7:0" /sys/module/cpu_boost/parameters/input_boost_freq
+    lock_val "400" /sys/module/cpu_boost/parameters/input_boost_ms
+    lock_val "2" /sys/module/cpu_boost/parameters/sched_boost_on_input
 
     # limit the usage of big cluster
     lock_val "1" /sys/devices/system/cpu/cpu4/core_ctl/enable
@@ -140,9 +140,9 @@ apply_balance()
     mutate "0" /dev/stune/top-app/schedtune.boost
     mutate "0" /dev/stune/top-app/schedtune.prefer_idle
 
-    lock_val "0:1632000 4:0 7:0" /sys/module/cpu_boost/parameters/input_boost_freq
-    lock_val "300" /sys/module/cpu_boost/parameters/input_boost_ms
-    lock_val "0" /sys/module/cpu_boost/parameters/sched_boost_on_input
+    lock_val "0:1113600 4:825600 7:0" /sys/module/cpu_boost/parameters/input_boost_freq
+    lock_val "400" /sys/module/cpu_boost/parameters/input_boost_ms
+    lock_val "2" /sys/module/cpu_boost/parameters/sched_boost_on_input
 
     # limit the usage of big cluster
     lock_val "1" /sys/devices/system/cpu/cpu4/core_ctl/enable

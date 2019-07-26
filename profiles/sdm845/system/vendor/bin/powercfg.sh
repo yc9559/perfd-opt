@@ -100,9 +100,9 @@ apply_powersave()
     mutate "0" /dev/stune/top-app/schedtune.boost
     mutate "0" /dev/stune/top-app/schedtune.prefer_idle
 
-    lock_val "0:1612800 4:0" /sys/module/cpu_boost/parameters/input_boost_freq
-    lock_val "300" /sys/module/cpu_boost/parameters/input_boost_ms
-    lock_val "0" /sys/module/cpu_boost/parameters/sched_boost_on_input
+    lock_val "0:1209600 4:1036800" /sys/module/cpu_boost/parameters/input_boost_freq
+    lock_val "400" /sys/module/cpu_boost/parameters/input_boost_ms
+    lock_val "2" /sys/module/cpu_boost/parameters/sched_boost_on_input
 
     # limit the usage of big cluster
     lock_val "1" /sys/devices/system/cpu/cpu4/core_ctl/enable
@@ -122,9 +122,9 @@ apply_balance()
     mutate "0" /dev/stune/top-app/schedtune.boost
     mutate "0" /dev/stune/top-app/schedtune.prefer_idle
 
-    lock_val "0:1612800 4:0" /sys/module/cpu_boost/parameters/input_boost_freq
-    lock_val "300" /sys/module/cpu_boost/parameters/input_boost_ms
-    lock_val "0" /sys/module/cpu_boost/parameters/sched_boost_on_input
+    lock_val "0:1209600 4:1036800" /sys/module/cpu_boost/parameters/input_boost_freq
+    lock_val "400" /sys/module/cpu_boost/parameters/input_boost_ms
+    lock_val "2" /sys/module/cpu_boost/parameters/sched_boost_on_input
 
     # limit the usage of big cluster
     lock_val "1" /sys/devices/system/cpu/cpu4/core_ctl/enable
