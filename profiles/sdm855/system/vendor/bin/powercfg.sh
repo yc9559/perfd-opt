@@ -65,7 +65,7 @@ apply_common()
     mutate "0-3" /dev/cpuset/foreground/cpus
 
     # task_util(p) = p->ravg.demand_scaled <= sysctl_sched_min_task_util_for_boost
-    mutate "31" /proc/sys/kernel/sched_min_task_util_for_boost
+    mutate "12" /proc/sys/kernel/sched_min_task_util_for_boost
     mutate "96" /proc/sys/kernel/sched_min_task_util_for_colocation
     # normal colocation util report
     mutate "1000000" /proc/sys/kernel/sched_little_cluster_coloc_fmin_khz
