@@ -2,7 +2,7 @@
 # Perfd-opt https://github.com/yc9559/perfd-opt/
 # Author: Matt Yang
 # Platform: sm6150
-# Version: v1 (20190721)
+# Version: v1 (20190727)
 
 # Runonce after boot, to speed up the transition of power modes in powercfg
 

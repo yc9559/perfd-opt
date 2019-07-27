@@ -68,7 +68,7 @@ sdm710
 Perfd-opt https://github.com/yc9559/perfd-opt/
 Author:   Matt Yang
 Platform: sdm855
-Version:  v1 (20190721)
+Version:  v1 (20190727)
 
 [status]
 Power mode:     balance

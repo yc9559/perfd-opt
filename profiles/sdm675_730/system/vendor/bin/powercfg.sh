@@ -2,7 +2,7 @@
 # Perfd-opt https://github.com/yc9559/perfd-opt/
 # Author: Matt Yang
 # Platform: sm6150
-# Version: v1 (20190721)
+# Version: v1 (20190727)
 
 module_dir="/data/adb/modules/perfd-opt"
 panel_path="/sdcard/powercfg_panel.txt"
@@ -264,7 +264,7 @@ echo ""                                                     >  ${panel_path}
 echo "Perfd-opt https://github.com/yc9559/perfd-opt/"       >> ${panel_path}
 echo "Author:   Matt Yang"                                  >> ${panel_path}
 echo "Platform: sm6150"                                     >> ${panel_path}
-echo "Version:  v1 (20190721)"                              >> ${panel_path}
+echo "Version:  v1 (20190727)"                              >> ${panel_path}
 echo ""                                                     >> ${panel_path}
 echo "[status]"                                             >> ${panel_path}
 echo "Power mode:     ${action}"                            >> ${panel_path}

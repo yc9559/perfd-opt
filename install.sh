@@ -124,7 +124,7 @@ print_modname() {
   ui_print ""
   ui_print "Perfd-opt https://github.com/yc9559/perfd-opt/"
   ui_print "Author: Matt Yang"
-  ui_print "Version: v1 (20190721)"
+  ui_print "Version: v1 (20190727)"
   ui_print ""
 }
 

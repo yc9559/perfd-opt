@@ -3,7 +3,7 @@
 # Original repo: https://github.com/yc9559/sdm855-tune/
 # Author: Matt Yang
 # Platform: sdm855
-# Version: v1 (20190721)
+# Version: v1 (20190727)
 
 # Runonce after boot, to speed up the transition of power modes in powercfg
 
