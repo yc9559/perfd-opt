@@ -21,10 +21,10 @@ sdm855
 - fast:         1.8+2.6g, boost 2.4+2.8g, min 0.5+1.4+1.4
 
 sdm845
-- powersave:    2.0g, boost 2.4g, min 0.3+0.3
+- powersave:    1.8g, boost 2.2g, min 0.3+0.3
 - balance:      2.3g, boost 2.5g, min 0.5+0.8
 - performance:  2.8g, boost 2.8g, min 0.5+0.8
-- fast:         2.4g, boost 2.8g, min 0.5+1.6
+- fast:         2.3g, boost 2.8g, min 0.5+1.6
 
 sdm730
 - powersave:    1.5g, boost 1.9g, min 0.3+0.3
@@ -33,10 +33,10 @@ sdm730
 - fast:         1.9g, boost 2.2g, min 0.5+1.5
 
 sdm675
-- powersave:    1.5g, boost 1.9g, min 0.3+0.3
+- powersave:    1.5g, boost 1.7g, min 0.3+0.3
 - balance:      1.7g, boost 1.9g, min 0.3+0.3
 - performance:  2.0g, boost 2.0g, min 0.5+0.6
-- fast:         1.7g, boost 2.0g, min 0.5+1.5
+- fast:         1.5g, boost 2.0g, min 0.5+1.5
 
 sdm710
 - powersave:    1.7g, boost 1.9g, min 0.3+0.3
