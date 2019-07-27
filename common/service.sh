@@ -8,3 +8,6 @@ MODDIR=${0%/*}
 
 # support vtools
 cp -af $MODDIR/vtools-powercfg.sh /data/powercfg.sh
+cp -af $MODDIR/vtools-powercfg-base.sh /data/powercfg-base.sh
+chmod +x /data/powercfg.sh
+chmod +x /data/powercfg-base.sh

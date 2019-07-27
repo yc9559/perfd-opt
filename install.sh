@@ -133,6 +133,7 @@ print_modname() {
 on_install() {
   # cp custom files in ./common
   cp -af $TMPDIR/vtools-powercfg.sh $MODPATH/vtools-powercfg.sh
+  cp -af $TMPDIR/vtools-powercfg-base.sh $MODPATH/vtools-powercfg-base.sh
 
   target=`getprop ro.board.platform`
   ui_print "- The platform of this device is ${target}"
