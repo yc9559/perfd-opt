@@ -201,9 +201,9 @@ apply_fast()
     mutate "20" /dev/stune/top-app/schedtune.boost
     mutate "1" /dev/stune/top-app/schedtune.prefer_idle
 
-    lock_val "0:0 4:1804800 7:1612800" /sys/module/cpu_boost/parameters/input_boost_freq
+    lock_val "0:0 4:1804800 7:1804800" /sys/module/cpu_boost/parameters/input_boost_freq
     lock_val "2000" /sys/module/cpu_boost/parameters/input_boost_ms
-    lock_val "1" /sys/module/cpu_boost/parameters/sched_boost_on_input
+    lock_val "2" /sys/module/cpu_boost/parameters/sched_boost_on_input
 
     # turn off core_ctl to reduce latency
     lock_val "0" /sys/devices/system/cpu/cpu4/core_ctl/enable

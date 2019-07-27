@@ -160,7 +160,7 @@ apply_fast()
 {
     # may be override
     mutate "576000" /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    mutate "1843200" /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
+    mutate "1536000" /sys/devices/system/cpu/cpu6/cpufreq/scaling_min_freq
 
     # easier to boost
     mutate "40" /proc/sys/kernel/sched_downmigrate
@@ -178,7 +178,7 @@ apply_fast()
 
     lock_val "0:0 6:1843200" /sys/module/cpu_boost/parameters/input_boost_freq
     lock_val "2000" /sys/module/cpu_boost/parameters/input_boost_ms
-    lock_val "1" /sys/module/cpu_boost/parameters/sched_boost_on_input
+    lock_val "2" /sys/module/cpu_boost/parameters/sched_boost_on_input
 
     # turn off core_ctl to reduce latency
     lock_val "0" /sys/devices/system/cpu/cpu0/core_ctl/enable

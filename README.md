@@ -42,7 +42,7 @@ sdm710
 - powersave:    1.7g, boost 1.9g, min 0.3+0.3
 - balance:      2.0g, boost 2.1g, min 0.3+0.3
 - performance:  2.2g, boost 2.2g, min 0.5+0.6
-- fast:         2.0g, boost 2.2g, min 0.5+1.8
+- fast:         2.0g, boost 2.2g, min 0.5+1.5
 ```
 
 ## Requirements
