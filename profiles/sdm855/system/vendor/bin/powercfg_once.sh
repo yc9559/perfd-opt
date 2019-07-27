@@ -36,13 +36,6 @@ change_task_cgroup()
 # 580M for empty apps
 lock_val "18432,23040,27648,51256,122880,150296" /sys/module/lowmemorykiller/parameters/minfree
 
-# move all task not in any cgroup to system_background
-for non_tid in `cat /dev/cpuset/tasks`
-do
-    echo ${non_tid} > /dev/cpuset/foreground/tasks
-    echo ${non_tid} > /dev/stune/background/tasks
-done
-
 # treat crtc_commit as display
 change_task_cgroup "crtc_commit" "display" "cpuset"
 
