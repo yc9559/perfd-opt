@@ -131,8 +131,9 @@ print_modname() {
 # Copy/extract your module files into $MODPATH in on_install.
 
 on_install() {
-  # The following is the default implementation: extract $ZIPFILE/system to $MODPATH
-  # Extend/change the logic to whatever you want
+  # cp custom files in ./common
+  cp -af $TMPDIR/vtools-powercfg.sh $MODPATH/vtools-powercfg.sh
+
   target=`getprop ro.board.platform`
   ui_print "- The platform of this device is ${target}"
 

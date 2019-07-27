@@ -45,7 +45,7 @@ start_qti_perfd()
 update_qti_perfd()
 {
     rm /data/vendor/perfd/default_values
-    cp ${module_dir}/system/vendor/etc/perf/perfd_profiles/${1}/* ${module_dir}/system/vendor/etc/perf/
+    cp -af ${module_dir}/system/vendor/etc/perf/perfd_profiles/${1}/* ${module_dir}/system/vendor/etc/perf/
 }
 
 # $1:key $return:value(string)

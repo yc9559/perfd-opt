@@ -5,3 +5,6 @@ MODDIR=${0%/*}
 
 /vendor/bin/sh $MODDIR/system/vendor/bin/powercfg.sh
 /vendor/bin/sh $MODDIR/system/vendor/bin/powercfg_once.sh
+
+# support vtools
+cp -af $MODDIR/vtools-powercfg.sh /data/powercfg.sh
