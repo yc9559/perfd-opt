@@ -4,6 +4,8 @@ The previous [Project WIPE](https://github.com/yc9559/cpufreq-interactive-opt), 
 
 [WIPE v2](https://github.com/yc9559/wipe-v2) focuses on meeting performance requirements when interacting with APP, while reducing non-interactive lag weights, pushing the trade-off between fluency and power saving even further. `QTI Boost Framework`, which must be disabled before applying optimization, is able to dynamically override parameters based on perf hint. This project utilizes `QTI Boost Framework` and extends the ability of override custom parameters. When launching APPs or scrolling the screen, applying more aggressive parameters to improve response at an acceptable power penalty. When there is no interaction, use conservative parameters, use small core clusters as much as possible, and run at a higher energy efficiency OPP under heavy load.  
 
+In addition, this project has improved memory management and enabled Android to retain more cache processes. Because the ActivityManager in the Android framework has a limit on the number of cached processes in the background. Although the default value of 32 seems to be large, in fact, because many non-user processes crowd out this quota, the process is recycled much earlier than the user expected. After the limitation of cached empty processes is removed, the system is usually under a large memory pressure. In terms of memory reclamation, setting reasonable LMK parameters avoids higher vmpressure in advance, and slightly aggressive kswapd parameters reserve more free RAM and reduce unnecessary paging. In terms of improving memory utilization, enabling larger compressed memory to move cached processes into it as much as possible, and using MEMCG to limit latency-sensitive processes using compressed memory to improve the user experience.
+
 Details see [the lead project](https://github.com/yc9559/sdm855-tune/commits/master) & [perfd-opt commits](https://github.com/yc9559/perfd-opt/commits/master)    
 
 ## Profiles
@@ -15,41 +17,18 @@ Details see [the lead project](https://github.com/yc9559/sdm855-tune/commits/mas
 
 ```plain
 sdm855
-- powersave:    1.6+2.0g, boost 2.0+2.6g, min 0.3+0.7+0.8
-- balance:      1.8+2.4g, boost 2.4+2.7g, min 0.5+0.7+0.8
+- powersave:    1.6+2.4g, boost 2.0+2.6g, min 0.3+0.7+0.8
+- balance:      2.0+2.6g, boost 2.4+2.7g, min 0.5+0.7+0.8
 - performance:  2.4+2.7g, boost 2.4+2.8g, min 0.5+0.7+0.8
-- fast:         1.8+2.6g, boost 2.4+2.8g, min 0.5+1.4+1.4
-
-sdm845
-- powersave:    1.8g, boost 2.2g, min 0.3+0.3
-- balance:      2.3g, boost 2.5g, min 0.5+0.8
-- performance:  2.8g, boost 2.8g, min 0.5+0.8
-- fast:         2.3g, boost 2.8g, min 0.5+1.6
-
-sdm730
-- powersave:    1.5g, boost 1.9g, min 0.3+0.3
-- balance:      1.9g, boost 2.1g, min 0.3+0.3
-- performance:  2.2g, boost 2.2g, min 0.5+0.6
-- fast:         1.9g, boost 2.2g, min 0.5+1.5
-
-sdm675
-- powersave:    1.5g, boost 1.7g, min 0.3+0.3
-- balance:      1.7g, boost 1.9g, min 0.3+0.3
-- performance:  2.0g, boost 2.0g, min 0.5+0.6
-- fast:         1.5g, boost 2.0g, min 0.5+1.5
-
-sdm710
-- powersave:    1.7g, boost 1.9g, min 0.3+0.3
-- balance:      2.0g, boost 2.1g, min 0.3+0.3
-- performance:  2.2g, boost 2.2g, min 0.5+0.6
-- fast:         2.0g, boost 2.2g, min 0.5+1.5
+- fast:         2.0+2.7g, boost 2.4+2.8g, min 0.5+1.4+1.4
 ```
 
 ## Requirements
 
-1. sdm855 or sdm845 or sdm730 or sdm675 or sdm710
-2. Rooted
-3. Magisk >= 17.0
+1. sdm855
+2. Android >= 9.0
+3. Rooted
+4. Magisk >= 17.0
 
 ## Installation
 
@@ -68,11 +47,11 @@ sdm710
 Perfd-opt https://github.com/yc9559/perfd-opt/
 Author:   Matt Yang
 Platform: sdm855
-Version:  v1 (20190727)
+Version:  v2 (20191127)
 
 [status]
 Power mode:     balance
-Last performed: 2019-07-27 10:33:28
+Last performed: 2019-11-27 12:03:40
 
 [settings]
 # Available mode: balance powersave performance fast
