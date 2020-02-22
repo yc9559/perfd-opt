@@ -57,20 +57,20 @@ sdm710
 1. Download zip in [Release Page](https://github.com/yc9559/perfd-opt/releases)
 2. Flash in Magisk manager
 3. Reboot
-4. Check whether `/sdcard/powercfg_panel.txt` exists
+4. Check whether `/sdcard/Android/panel_powercfg.txt` exists
 
 ## Switch modes
 
 ### Switching on boot
 
-1. Open `/sdcard/powercfg_panel.txt`
-2. Edit line `default_mode=balance`
+1. Open `/sdcard/Android/panel_powercfg.txt`
+2. Edit line `default_mode=balance`, where `balance` is the default mode applied at boot
 3. Reboot
 
 ### Switching after boot
 
 Option 1:  
-Exec `/vendor/bin/sh /vendor/bin/powercfg.sh balance`, where `balance` is the mode you want to switch.  
+Exec `/sh /data/powercfg.sh balance`, where `balance` is the mode you want to switch.  
 
 Option 2:  
 Install [vtools](https://www.coolapk.com/apk/com.omarea.vtools) and bind APPs to power mode.  
