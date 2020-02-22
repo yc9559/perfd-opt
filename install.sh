@@ -124,47 +124,35 @@ print_modname() {
   ui_print ""
   ui_print "Perfd-opt https://github.com/yc9559/perfd-opt/"
   ui_print "Author: Matt Yang"
-  ui_print "Version: v1 (20190727)"
+  ui_print "Version: v3 (20200222)"
   ui_print ""
 }
 
 # Copy/extract your module files into $MODPATH in on_install.
 
 on_install() {
-  # cp custom files in ./common
-  cp -af $TMPDIR/vtools-powercfg.sh $MODPATH/vtools-powercfg.sh
-  cp -af $TMPDIR/vtools-powercfg-base.sh $MODPATH/vtools-powercfg-base.sh
-
   target=`getprop ro.board.platform`
-  ui_print "- The platform of this device is ${target}"
+  ui_print "- The platform of this device is $target"
 
-  case "${target}" in
+  case "$target" in
   "msmnile")
-    ui_print "- Extracting module files"
-    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
-    mv $MODPATH/profiles/sdm855/system $MODPATH/
-    rm -rf $MODPATH/profiles
+    extract_common_file
+    extract_platform_file "sdm855"
   ;;
   "sdm845")
-    ui_print "- Extracting module files"
-    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
-    mv $MODPATH/profiles/sdm845/system $MODPATH/
-    rm -rf $MODPATH/profiles
+    extract_common_file
+    extract_platform_file "sdm845"
   ;;
   "sm6150")
-    ui_print "- Extracting module files"
-    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
-    mv $MODPATH/profiles/sdm675_730/system $MODPATH/
-    rm -rf $MODPATH/profiles
+    extract_common_file
+    extract_platform_file "sdm675_730"
   ;;
   "sdm710")
-    ui_print "- Extracting module files"
-    unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
-    mv $MODPATH/profiles/sdm710/system $MODPATH/
-    rm -rf $MODPATH/profiles
+    extract_common_file
+    extract_platform_file "sdm710"
   ;;
   *)
-    abort "- ${target} not supported, terminated."
+    abort "- $target not supported, terminated."
   ;;
   esac
 }
@@ -182,8 +170,22 @@ set_permissions() {
   # set_perm  $MODPATH/system/bin/app_process32   0     2000    0755      u:object_r:zygote_exec:s0
   # set_perm  $MODPATH/system/bin/dex2oat         0     2000    0755      u:object_r:dex2oat_exec:s0
   # set_perm  $MODPATH/system/lib/libart.so       0     0       0644
-  set_perm $MODDIR/system/vendor/bin/powercfg.sh 0 2000 0755 u:object_r:vendor_file:s0
-  set_perm $MODDIR/system/vendor/bin/powercfg_once.sh 0 2000 0755 u:object_r:vendor_file:s0
 }
 
 # You can add more functions to assist your custom script code
+
+extract_common_file() {
+  ui_print "- Extracting common module files"
+  unzip -o "$ZIPFILE" 'system/*' -d $MODPATH >&2
+  unzip -o "$ZIPFILE" 'script/*' -d $MODPATH >&2
+  unzip -o "$ZIPFILE" 'bin/*' -d $MODPATH >&2
+}
+
+# $1:platform_name
+extract_platform_file() {
+  ui_print "- Extracting platform module files"
+  unzip -o "$ZIPFILE" 'profiles/*' -d $MODPATH >&2
+  mv $MODPATH/profiles/$1/system $MODPATH/
+  mv $MODPATH/profiles/$1/powercfg_modes.sh $MODPATH/script/
+  rm -rf $MODPATH/profiles
+}

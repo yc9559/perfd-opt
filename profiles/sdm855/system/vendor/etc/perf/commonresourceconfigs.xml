@@ -51,7 +51,7 @@ need to be added just before the end of it's major group. -->
         <!--Sysfsnode paths may change basing on the target for minors 0x1, 0x4, 0x5, 0x9.
             So, for targets with different node paths than default, need to be specified
             in the target specific resource config xml file. -->
-        <Minor OpcodeValue="0x0" Node="/proc/sys/kernel/sched_boost" />
+        <Minor OpcodeValue="0x0" Node="/proc/sys/kernel/sched_boost_bak" />
         <Minor OpcodeValue="0x1" Node="/proc/sys/kernel/sched_prefer_idle" Supported="no" />
         <Minor OpcodeValue="0x2" Node="/proc/sys/kernel/sched_migration_cost_ns" />
         <Minor OpcodeValue="0x3" Node="/proc/sys/kernel/sched_small_task" />

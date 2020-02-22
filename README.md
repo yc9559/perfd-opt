@@ -8,48 +8,49 @@ Details see [the lead project](https://github.com/yc9559/sdm855-tune/commits/mas
 
 ## Profiles
 
-- powersave: based on balance mode, but with lower frequency limitation
+- powersave: based on balance mode, but with lower max frequency
 - balance: smoother than the stock config with lower power consumption
-- performance: dynamic stune boost = 50 with no frequency limitation
+- performance: dynamic stune boost = 30 with no frequency limitation
 - fast: providing stable performance capacity considering the TDP limitation of device chassis
 
 ```plain
-sdm855
-- powersave:    1.6+2.0g, boost 2.0+2.6g, min 0.3+0.7+0.8
-- balance:      1.8+2.4g, boost 2.4+2.7g, min 0.5+0.7+0.8
-- performance:  2.4+2.7g, boost 2.4+2.8g, min 0.5+0.7+0.8
-- fast:         1.8+2.6g, boost 2.4+2.8g, min 0.5+1.4+1.4
+sdm855/sdm855+
+- powersave:    1.7+1.6+2.4g, boost 1.7+2.0+2.6g, min 0.3+0.7+0.8
+- balance:      1.7+2.0+2.6g, boost 1.7+2.4+2.7g, min 0.5+0.7+0.8
+- performance:  1.7+2.4+2.8g, boost 1.7+2.4+2.8/2.9g, min 0.5+0.7+0.8
+- fast:         1.7+2.0+2.7g, boost 1.7+2.4+2.8/2.9g, min 0.5+1.2+1.2
 
 sdm845
-- powersave:    1.8g, boost 2.2g, min 0.3+0.3
-- balance:      2.3g, boost 2.5g, min 0.5+0.8
-- performance:  2.8g, boost 2.8g, min 0.5+0.8
-- fast:         2.3g, boost 2.8g, min 0.5+1.6
+- powersave:    1.7+2.0g, boost 1.7+2.4g, min 0.3+0.3
+- balance:      1.7+2.4g, boost 1.7+2.7g, min 0.5+0.8
+- performance:  1.7+2.8g, boost 1.7+2.8g, min 0.5+0.8
+- fast:         1.7+2.4g, boost 1.7+2.8g, min 0.5+1.6
 
 sdm730
-- powersave:    1.5g, boost 1.9g, min 0.3+0.3
-- balance:      1.9g, boost 2.1g, min 0.3+0.3
-- performance:  2.2g, boost 2.2g, min 0.5+0.6
-- fast:         1.9g, boost 2.2g, min 0.5+1.5
+- powersave:    1.7+1.5g, boost 1.7+1.9g, min 0.3+0.3
+- balance:      1.7+1.9g, boost 1.7+2.1g, min 0.5+0.6
+- performance:  1.8+2.2g, boost 1.8+2.2g, min 0.5+0.6
+- fast:         1.8+1.9g, boost 1.8+2.2g, min 0.5+1.2
 
 sdm675
-- powersave:    1.5g, boost 1.7g, min 0.3+0.3
-- balance:      1.7g, boost 1.9g, min 0.3+0.3
-- performance:  2.0g, boost 2.0g, min 0.5+0.6
-- fast:         1.5g, boost 2.0g, min 0.5+1.5
+- powersave:    1.7+1.5g, boost 1.7+1.7g, min 0.3+0.3
+- balance:      1.7+1.7g, boost 1.7+1.9g, min 0.5+0.6
+- performance:  1.8+2.0g, boost 1.8+2.0g, min 0.5+0.6
+- fast:         1.8+1.7g, boost 1.8+2.0g, min 0.5+1.2
 
 sdm710
-- powersave:    1.7g, boost 1.9g, min 0.3+0.3
-- balance:      2.0g, boost 2.1g, min 0.3+0.3
-- performance:  2.2g, boost 2.2g, min 0.5+0.6
-- fast:         2.0g, boost 2.2g, min 0.5+1.5
+- powersave:    1.7+1.8g, boost 1.7+2.0g, min 0.3+0.3
+- balance:      1.7+2.0g, boost 1.7+2.2g, min 0.5+0.6
+- performance:  1.7+2.2g, boost 1.7+2.2g, min 0.5+0.6
+- fast:         1.7+2.0g, boost 1.7+2.2g, min 0.5+1.5
 ```
 
 ## Requirements
 
 1. sdm855 or sdm845 or sdm730 or sdm675 or sdm710
-2. Rooted
-3. Magisk >= 17.0
+2. Android >= 8.0
+3. Rooted
+4. Magisk >= 17.0
 
 ## Installation
 
@@ -62,23 +63,7 @@ sdm710
 
 ### Switching on boot
 
-1. Open `/sdcard/powercfg_panel.txt`, you will see:  
-```plain
-
-Perfd-opt https://github.com/yc9559/perfd-opt/
-Author:   Matt Yang
-Platform: sdm855
-Version:  v1 (20190727)
-
-[status]
-Power mode:     balance
-Last performed: 2019-07-27 10:33:28
-
-[settings]
-# Available mode: balance powersave performance fast
-default_mode=balance
-
-```
+1. Open `/sdcard/powercfg_panel.txt`
 2. Edit line `default_mode=balance`
 3. Reboot
 

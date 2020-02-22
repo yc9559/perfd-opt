@@ -53,7 +53,7 @@
              CpufreqGov="1" />
 
          <ClustersInfo Id="0" NumCores="6" Type="little" />
-         <ClustersInfo Id="1" NumCores="2" Type="big" MaxFrequency="1516800" />
+         <ClustersInfo Id="1" NumCores="2" Type="big" MaxFrequency="1708800" />
 
     </Config1>
 

@@ -54,7 +54,7 @@
 
          <ClustersInfo Id="0" NumCores="4" Type="little" />
          <ClustersInfo Id="1" NumCores="3" Type="big" MaxFrequency="1612800" />
-         <ClustersInfo Id="2" NumCores="1" Type="prime" MaxFrequency="2016000" />
+         <ClustersInfo Id="2" NumCores="1" Type="prime" MaxFrequency="2419200" />
 
     </Config1>
 

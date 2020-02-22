@@ -16,25 +16,25 @@
     <PerfBoost>
 
     <!--app lauch boost-->
-    <Config Id="0x00001081" Type="1" Enable="true" Timeout="500" Target="msmsteppe"
-        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40C18000, 60, 0x40C40000, 127, 0x41000000, 2, 0x40400000, 1, 0x42C10000, 1, 0x41800000, 0xFF, 0x43000000, 0xFF, 0x43400000, 0xFFFF" />
+    <Config Id="0x00001081" Type="1" Enable="true" Timeout="1000" Target="msmsteppe"
+        Resources="0x40804000, 0xFFF, 0x40800000, 0xFFF, 0x40800100, 0xFFF, 0x41000000, 2, 0x41000100, 6, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 122, 0x43000000, 55, 0x43400000, 12000" />
 
-    <Config Id="0x00001081" Type="1" Enable="true" Timeout="500" Target="sdmmagpie"
-        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40C18000, 60, 0x40C40000, 127, 0x41000000, 2, 0x40400000, 1, 0x42C10000, 1, 0x41800000, 0xFF, 0x43000000, 0xFF, 0x43400000, 0xFFFF" />
+    <Config Id="0x00001081" Type="1" Enable="true" Timeout="1000" Target="sdmmagpie"
+        Resources="0x40804000, 0xFFF, 0x40800000, 0xFFF, 0x40800100, 0xFFF, 0x41000000, 2, 0x41000100, 6, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 122, 0x43000000, 55, 0x43400000, 12000" />
 
     <!--app lauch boost sustained-->
-    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2000" Target="msmsteppe"
-        Resources="0x40804000, 1900, 0x40804100, 0xFFF, 0x40C18000, 50, 0x40C40000, 127, 0x41000000, 2, 0x40400000, 1, 0x42C10000, 1, 0x41800000, 0xFF, 0x43000000, 0xFF, 0x43400000, 0xFFFF" />
+    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2500" Target="msmsteppe"
+        Resources="0x40804000, 0xFFF, 0x40800000, 1200, 0x40800100, 1200, 0x41000000, 2, 0x41000100, 6, 0x41800000, 80, 0x43000000, 35, 0x43400000, 12000" />
 
-    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2000" Target="sdmmagpie"
-        Resources="0x40804000, 2100, 0x40804100, 0xFFF, 0x40C18000, 50, 0x40C40000, 127, 0x41000000, 2, 0x40400000, 1, 0x42C10000, 1, 0x41800000, 0xFF, 0x43000000, 0xFF, 0x43400000, 0xFFFF" />
+    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2500" Target="sdmmagpie"
+        Resources="0x40804000, 0xFFF, 0x40800000, 1200, 0x40800100, 1200, 0x41000000, 2, 0x41000100, 6, 0x41800000, 80, 0x43000000, 35, 0x43400000, 12000" />
 
     <!-- config_enableLaunchBoostv2-->
     <Config Id="0x00001081" Type="3" Enable="true" Timeout="15000" Target="msmsteppe"
-        Resources="0x40C00000, 3, 0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60" />
+        Resources="0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60" />
 
     <Config Id="0x00001081" Type="3" Enable="true" Timeout="15000" Target="sdmmagpie"
-        Resources="0x40C00000, 3, 0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60" />
+        Resources="0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60" />
 
     <!-- config_enableLaunchBoostv4-->
         <!-- MIN_ONLINE_CPU_CLUSTER_BIG resource opcode, value-->
@@ -71,59 +71,59 @@
 
     <!--Animation boost -->
     <Config Id="0x00001083" Type="1" Enable="true" Timeout="400" Target="msmsteppe"
-        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40800000, 2208, 0x40800100, 1708" />
+        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF" />
 
     <Config Id="0x00001083" Enable="true" Timeout="400" Target="sdmmagpie"
-        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40800000, 2438, 0x40800100, 1804" />
+        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF" />
 
     <!--Vertical Scroll boost-->
     <Config Id="0x00001080" Type="1" Enable="true" Target="msmsteppe"
-        Resources="0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0, 0x40C18000, 50, 0x41000000, 2" />
+        Resources="0x40804000, 1700, 0x40800000, 1200, 0x40800100, 1000, 0x40C18000, 30, 0x40C3C000, 127, 0x40C40000, 15, 0x41800000, 80, 0x43000000, 25" />
 
     <Config Id="0x00001080" Type="1" Enable="true" Target="sdmmagpie"
-        Resources="0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0, 0x40C18000, 50, 0x41000000, 2" />
+        Resources="0x40804000, 1900, 0x40800000, 1200, 0x40800100, 1000, 0x40C18000, 30, 0x40C3C000, 127, 0x40C40000, 15, 0x41800000, 80, 0x43000000, 25" />
 
     <!--Prefling Scroll boost-->
     <Config Id="0x00001080" Type="4" Enable="true" Timeout="80" Target="msmsteppe"
-        Resources="0x40C00000, 2" />
+        Resources="0x43000000, 25" />
 
     <Config Id="0x00001080" Type="4" Enable="true" Timeout="80" Target="sdmmagpie"
-        Resources="0x40C00000, 2" />
+        Resources="0x43000000, 25" />
 
     <!--Horizontal Scroll boost-->
     <Config Id="0x00001080" Type="2" Enable="true" Target="msmsteppe"
-        Resources="0x40C00000, 2" />
+        Resources="0x43000000, 25" />
 
     <Config Id="0x00001080" Type="2" Enable="true" Target="sdmmagpie"
-        Resources="0x40C00000, 2" />
+        Resources="0x43000000, 25" />
 
     <!--Drag boost-->
     <Config Id="0x00001087" Type="1" Enable="true" Timeout="0" Target="msmsteppe"
-        Resources="0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0, 0x40C18000, 50, 0x41000000, 2" />
+        Resources="0x40800000, 1200, 0x40800100, 1000, 0x40C18000, 30, 0x41000100, 6, 0x41800000, 80, 0x43000000, 25" />
 
     <Config Id="0x00001087" Type="1" Enable="true" Timeout="0" Target="sdmmagpie"
-        Resources="0x40800000, 1000, 0x40800100, 1000, 0x40C00000, 0, 0x40C18000, 50, 0x41000000, 2" />
+        Resources="0x40800000, 1200, 0x40800100, 1000, 0x40C18000, 30, 0x41000100, 6, 0x41800000, 80, 0x43000000, 25" />
 
     <!--PackageInstall boost-->
     <Config Id="0x00001088" Enable="true" Target="msmsteppe"
-        Resources="0x40C00000, 1, 0x40804000, 1900, 0x40804100, 0xFFF, 0x40800000, 1900, 0x40800100, 0xFFF" />
+        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40800000, 2000, 0x40800100, 1500" />
 
     <Config Id="0x00001088" Enable="true" Target="sdmmagpie"
-        Resources="0x40C00000, 1, 0x40804000, 2100, 0x40804100, 0xFFF, 0x40800000, 2100, 0x40800100, 0xFFF" />
+        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40800000, 2000, 0x40800100, 1500" />
 
     <!--Rotation latency boost-->
     <Config Id="0x00001089" Enable="true" Timeout="1500" Target="msmsteppe"
-        Resources="0x40C00000, 0x1, 0x40804000, 1700, 0x40804100, 0xFFF, 0x40800000, 1200, 0x40800100, 0xFFF" />
+        Resources="0x40800000, 1200, 0x40800100, 1500" />
 
     <Config Id="0x00001089" Enable="true" Timeout="1500" Target="sdmmagpie"
-        Resources="0x40C00000, 0x1, 0x40804000, 1900, 0x40804100, 0xFFF, 0x40800000, 1500, 0x40800100, 0xFFF" />
+        Resources="0x40800000, 1200, 0x40800100, 1500" />
 
     <!--Rotation animation boost-->
     <Config Id="0x00001090" Enable="true" Timeout="1000" Target="msmsteppe"
-        Resources="0x40800100, 1200, 0x4280C000, 596, 0x41800000, 80, 0x43000000, 58, 0x43400000, 13000" />
+        Resources="0x40800100, 1100, 0x4280C000, 500" />
 
     <Config Id="0x00001090" Enable="true" Timeout="1000" Target="sdmmagpie"
-        Resources="0x40800100, 1500, 0x4280C000, 800, 0x41800000, 80, 0x43000000, 58, 0x43400000, 13000" />
+        Resources="0x40800100, 1100, 0x4280C000, 500" />
 
     </PerfBoost>
 </BoostConfigs>
