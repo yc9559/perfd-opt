@@ -70,7 +70,7 @@ sdm710
 ### Switching after boot
 
 Option 1:  
-Exec `/sh /data/powercfg.sh balance`, where `balance` is the mode you want to switch.  
+Exec `sh /data/powercfg.sh balance`, where `balance` is the mode you want to switch.  
 
 Option 2:  
 Install [vtools](https://www.coolapk.com/apk/com.omarea.vtools) and bind APPs to power mode.  
