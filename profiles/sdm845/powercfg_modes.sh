@@ -3,7 +3,7 @@
 # Perfd-opt https://github.com/yc9559/perfd-opt/
 # Author: Matt Yang
 # Platform: sdm845
-# Version: v3 (20200222)
+# Version: v4 (20200306)
 
 BASEDIR="$(dirname "$0")"
 . $BASEDIR/pathinfo.sh
@@ -44,7 +44,6 @@ apply_powersave()
     lock_val "0:1132800 4:1286400" $CPU_BOOST/input_boost_freq
     lock_val "800" $CPU_BOOST/input_boost_ms
     lock_val "2" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "0" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "9500" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -58,11 +57,10 @@ apply_balance()
     set_cpufreq_max "0:1766400 4:2476800"
     set_sched_migrate "95" "95" "140" "100"
     set_corectl_param "min_cpus" "0:4 4:2"
-    set_governor_param "schedutil/pl" "0:0 4:0"
+    set_governor_param "schedutil/pl" "0:0 4:1"
     lock_val "0:1132800 4:1286400" $CPU_BOOST/input_boost_freq
     lock_val "800" $CPU_BOOST/input_boost_ms
     lock_val "2" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "0" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "9500" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -80,7 +78,6 @@ apply_performance()
     lock_val "0:1132800 4:1612800" $CPU_BOOST/input_boost_freq
     lock_val "2000" $CPU_BOOST/input_boost_ms
     lock_val "2" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "10" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "11000" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -98,7 +95,6 @@ apply_fast()
     lock_val "0:1132800 4:1612800" $CPU_BOOST/input_boost_freq
     lock_val "2000" $CPU_BOOST/input_boost_ms
     lock_val "1" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "30" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "11000" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -109,6 +105,7 @@ apply_fast()
 apply_once()
 {
     mutate "$STUNE_FG_CPUS" /dev/cpuset/foreground/cpus
+    lock_val "$STUNE_BG_CPUS" /dev/cpuset/background/cpus
     lock_val "$STUNE_BG_CPUS" /dev/cpuset/restricted/cpus
     lock_val "$STUNE_BG_CPUS" /dev/cpuset/display/cpus
     set_corectl_param "enable" "0:1 4:1"

@@ -3,27 +3,27 @@
 # Perfd-opt https://github.com/yc9559/perfd-opt/
 # Author: Matt Yang
 # Platform: sm6150
-# Version: v3 (20200222)
+# Version: v4 (20200306)
 
 BASEDIR="$(dirname "$0")"
 . $BASEDIR/pathinfo.sh
 . $BASEDIR/libpowercfg.sh
 
-# "365,366"="sdmmagpie"="sdm730"
+# "365,366"="sdmmagpie"="sdm730/sdm730g"
 # "355,369"="msmsteppe"="sdm675"
 [ -f /sys/devices/soc0/soc_id ] && SOC_ID="$(cat /sys/devices/soc0/soc_id)"
 [ -f /sys/devices/system/soc/soc0/id ] && SOC_ID="$(cat /sys/devices/system/soc/soc0/id)"
 
 case "$SOC_ID" in
-    365|366) PLATFORM_NAME="sdm730" ;;
+    365|366) PLATFORM_NAME="sdm730/sdm730g" ;;
     355|369) PLATFORM_NAME="sdm675" ;;
 esac
 BWMON_CPU_LLC="soc:qcom,cpu-cpu-llcc-bw"
 BWMON_LLC_DDR="soc:qcom,cpu-llcc-ddr-bw"
 BIG_L3_LAT="soc:qcom,cpu6-cpu-l3-lat"
 BIG_DDR_LAT="soc:qcom,cpu6-llcc-ddr-lat"
-STUNE_BG_CPUS="0-5"
-STUNE_FG_CPUS="0-7"
+STUNE_BG_CPUS="0-3"
+STUNE_FG_CPUS="0-6"
 
 apply_common()
 {
@@ -55,7 +55,6 @@ apply_powersave()
     lock_val "0:1000000 6:1000000" $CPU_BOOST/input_boost_freq
     lock_val "800" $CPU_BOOST/input_boost_ms
     lock_val "2" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "0" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "13000" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -72,11 +71,10 @@ apply_balance()
     esac
     set_sched_migrate "95" "95" "140" "100"
     set_corectl_param "min_cpus" "0:4 6:2"
-    set_governor_param "schedutil/pl" "0:0 6:0"
+    set_governor_param "schedutil/pl" "0:0 6:1"
     lock_val "0:1000000 6:1000000" $CPU_BOOST/input_boost_freq
     lock_val "800" $CPU_BOOST/input_boost_ms
     lock_val "2" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "0" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "13000" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -97,7 +95,6 @@ apply_performance()
     lock_val "0:1000000 6:1200000" $CPU_BOOST/input_boost_freq
     lock_val "2000" $CPU_BOOST/input_boost_ms
     lock_val "2" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "10" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "15000" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -118,7 +115,6 @@ apply_fast()
     lock_val "0:1000000 6:1200000" $CPU_BOOST/input_boost_freq
     lock_val "2000" $CPU_BOOST/input_boost_ms
     lock_val "1" $CPU_BOOST/sched_boost_on_input
-    mutate "1" $ST_TOP/schedtune.sched_boost_enabled
     mutate "30" $ST_TOP/schedtune.boost
     mutate "1" $ST_TOP/schedtune.prefer_idle
     mutate "15000" $DEVFREQ/$BWMON_CPU_LLC/max_freq
@@ -129,6 +125,7 @@ apply_fast()
 apply_once()
 {
     mutate "$STUNE_FG_CPUS" /dev/cpuset/foreground/cpus
+    lock_val "$STUNE_BG_CPUS" /dev/cpuset/background/cpus
     lock_val "$STUNE_BG_CPUS" /dev/cpuset/restricted/cpus
     lock_val "$STUNE_BG_CPUS" /dev/cpuset/display/cpus
     set_corectl_param "enable" "0:1 6:1"

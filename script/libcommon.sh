@@ -2,7 +2,7 @@
 # Basic Tool Library
 # https://github.com/yc9559/
 # Author: Matt Yang
-# Version: 20200217
+# Version: 20200227
 
 BASEDIR="$(dirname "$0")"
 . $BASEDIR/pathinfo.sh
@@ -75,8 +75,7 @@ wait_until_login()
         sleep 2
     done
     # we doesn't have the permission to rw "/sdcard" before the user unlocks the screen
-    while [ ! -f "$PANEL_FILE" ]; do
-        touch "$PANEL_FILE"
+    while [ ! -d "/sdcard/Android" ]; do
         sleep 2
     done
 }
@@ -115,4 +114,36 @@ change_task_affinity()
             taskset -p "$2" "$temp_tid"
         done
     done
+}
+
+# $1:task_name $2:nice(relative to 120)
+change_task_nice()
+{
+    # avoid matching grep itself
+    # ps -Ao pid,args | grep kswapd
+    # 150 [kswapd0]
+    # 16490 grep kswapd
+    local ps_ret
+    ps_ret="$(ps -Ao pid,args)"
+    for temp_pid in $(echo "$ps_ret" | grep "$1" | awk '{print $1}'); do
+        for temp_tid in $(ls "/proc/$temp_pid/task/"); do
+            renice "$2" -p "$temp_tid"
+        done
+    done
+}
+
+###############################
+# Platform info functions
+###############################
+
+# $1:"4.14" return:string_in_version
+match_linux_version()
+{
+    echo "$(cat /proc/version | grep "$1")"
+}
+
+# return:platform_name
+get_platform_name()
+{
+    echo "$(getprop ro.board.platform)"
 }

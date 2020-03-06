@@ -3,7 +3,7 @@
 # Original repo: https://github.com/yc9559/sdm855-tune/
 # Author: Matt Yang
 # Platform: sdm855
-# Version: v3 (20200222)
+# Version: v4 (20200306)
 
 BASEDIR="$(dirname "$0")"
 . $BASEDIR/libcommon.sh
@@ -13,11 +13,11 @@ BASEDIR="$(dirname "$0")"
 # $1: power_mode
 apply_power_mode()
 {
-    stop_qti_perfd
+    perfhal_stop
     apply_common
     eval apply_$1
-    update_qti_perfd "$1"
-    start_qti_perfd
+    perfhal_update "$1"
+    perfhal_start
     echo "Applying $1 done."
 }
 
@@ -38,13 +38,14 @@ save_panel()
     write_panel "https://github.com/yc9559/perfd-opt/"
     write_panel "Author: Matt Yang"
     write_panel "Platform: $PLATFORM_NAME"
-    write_panel "Version: v3 (20200222)"
+    write_panel "Version: v4 (20200306)"
     write_panel "Last performed: $(date '+%Y-%m-%d %H:%M:%S')"
     write_panel ""
-    write_panel "[current status]"
-    write_panel "Power mode: $action"
+    write_panel "[Perfhal status]"
+    write_panel "$(perfhal_status)"
     write_panel ""
-    write_panel "[settings]"
+    write_panel "[Settings]"
+    write_panel "# The default mode applied at boot"
     write_panel "# Available mode: balance powersave performance fast"
     write_panel "default_mode=$default_mode"
 }

@@ -1,7 +1,6 @@
 id=perfd-opt
 name=Perfd-opt
-version=v3 (20200222)
-versionCode=1
+version=v4 (20200306)
+versionCode=4
 author=Matt Yang
 description=Provide better energy efficiency on EAS platforms by tuning CAF boostframework configuration. Repo: https://github.com/yc9559/perfd-opt/
-minMagisk=17000

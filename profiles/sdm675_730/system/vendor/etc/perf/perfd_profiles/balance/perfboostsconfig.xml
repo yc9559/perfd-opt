@@ -16,18 +16,18 @@
     <PerfBoost>
 
     <!--app lauch boost-->
-    <Config Id="0x00001081" Type="1" Enable="true" Timeout="1000" Target="msmsteppe"
-        Resources="0x40804000, 1900, 0x40800000, 1600, 0x40800100, 1500, 0x41000000, 2, 0x41000100, 6, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 122, 0x43000000, 55, 0x43400000, 12000" />
+    <Config Id="0x00001081" Type="1" Enable="true" Timeout="800" Target="msmsteppe"
+        Resources="0x40804000, 1900, 0x40800000, 1600, 0x40800100, 1500, 0x40C18000, 30, 0x41000000, 2, 0x41000100, 6, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 122, 0x43000000, 55, 0x43400000, 12000" />
 
-    <Config Id="0x00001081" Type="1" Enable="true" Timeout="1000" Target="sdmmagpie"
-        Resources="0x40804000, 2100, 0x40800000, 1600, 0x40800100, 1500, 0x41000000, 2, 0x41000100, 6, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 122, 0x43000000, 55, 0x43400000, 12000" />
+    <Config Id="0x00001081" Type="1" Enable="true" Timeout="800" Target="sdmmagpie"
+        Resources="0x40804000, 2100, 0x40800000, 1600, 0x40800100, 1500, 0x40C18000, 30, 0x41000000, 2, 0x41000100, 6, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 122, 0x43000000, 55, 0x43400000, 12000" />
 
     <!--app lauch boost sustained-->
-    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2500" Target="msmsteppe"
-        Resources="0x40804000, 1900, 0x40800000, 1200, 0x40800100, 1200, 0x41000000, 2, 0x41000100, 6, 0x41800000, 80, 0x43000000, 35, 0x43400000, 12000" />
+    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2000" Target="msmsteppe"
+        Resources="0x40804000, 1900, 0x40800000, 1200, 0x40800100, 1200, 0x40C18000, 10, 0x41000000, 2, 0x41000100, 6, 0x41800000, 80, 0x43000000, 35, 0x43400000, 12000" />
 
-    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2500" Target="sdmmagpie"
-        Resources="0x40804000, 2100, 0x40800000, 1200, 0x40800100, 1200, 0x41000000, 2, 0x41000100, 6, 0x41800000, 80, 0x43000000, 35, 0x43400000, 12000" />
+    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2000" Target="sdmmagpie"
+        Resources="0x40804000, 2100, 0x40800000, 1200, 0x40800100, 1200, 0x40C18000, 10, 0x41000000, 2, 0x41000100, 6, 0x41800000, 80, 0x43000000, 35, 0x43400000, 12000" />
 
     <!-- config_enableLaunchBoostv2-->
     <Config Id="0x00001081" Type="3" Enable="true" Timeout="15000" Target="msmsteppe"
@@ -71,7 +71,7 @@
 
     <!--Animation boost -->
     <Config Id="0x00001083" Type="1" Enable="true" Timeout="400" Target="msmsteppe"
-        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF" />
+        Resources="0x40800000, 1600, 0x40800100, 1500" />
 
     <Config Id="0x00001083" Enable="true" Timeout="400" Target="sdmmagpie"
         Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF" />

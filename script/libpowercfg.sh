@@ -2,7 +2,7 @@
 # Powercfg Library
 # https://github.com/yc9559/
 # Author: Matt Yang
-# Version: 20200216
+# Version: 20200225
 
 BASEDIR="$(dirname "$0")"
 . $BASEDIR/pathinfo.sh
@@ -20,7 +20,6 @@ PERFCFG_REL="./system/vendor/etc/perf"
 
 SCHED="/proc/sys/kernel"
 CPU="/sys/devices/system/cpu"
-CPU_BOOST="/sys/module/cpu_boost/parameters"
 KSGL="/sys/class/kgsl/kgsl-3d0"
 DEVFREQ="/sys/class/devfreq"
 LPM="/sys/module/lpm_levels/parameters"
@@ -29,6 +28,12 @@ ST_TOP="/dev/stune/top-app"
 ST_FORE="/dev/stune/foreground"
 ST_BACK="/dev/stune/background"
 SDA_Q="/sys/block/sda/queue"
+
+if [ "$(match_linux_version 4.19)" != "" ]; then
+    CPU_BOOST="/sys/devices/system/cpu/cpu_boost/parameters"
+else
+    CPU_BOOST="/sys/module/cpu_boost/parameters"
+fi
 
 ###############################
 # Powermodes helper functions
@@ -110,8 +115,10 @@ set_sched_migrate()
 # QTI perf framework functions
 ###############################
 
+perfhal_mode="balance"
+
 # stop before updating cfg
-stop_qti_perfd()
+perfhal_stop()
 {
     stop perf-hal-1-0
     stop perf-hal-2-0
@@ -119,15 +126,26 @@ stop_qti_perfd()
 }
 
 # start after updating cfg
-start_qti_perfd()
+perfhal_start()
 {
     start perf-hal-1-0
     start perf-hal-2-0
 }
 
 # $1:mode(such as balance)
-update_qti_perfd()
+perfhal_update()
 {
+    perfhal_mode="$1"
     rm /data/vendor/perfd/default_values
-    cp -af "$MODULE_PATH/$PERFCFG_REL/perfd_profiles/$1"/* "$MODULE_PATH/$PERFCFG_REL/"
+    cp -af "$MODULE_PATH/$PERFCFG_REL/perfd_profiles/$perfhal_mode"/* "$MODULE_PATH/$PERFCFG_REL/"
+}
+
+# return:status
+perfhal_status()
+{
+    if [ "$(ps -A | grep "qti.hardware.perf")" != "" ]; then
+        echo "Running. Current mode is $perfhal_mode."
+    else
+        echo "QTI boost framework not equipped with this system."
+    fi
 }

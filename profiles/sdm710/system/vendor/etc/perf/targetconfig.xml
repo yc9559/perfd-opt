@@ -46,7 +46,7 @@
              Target="sdm710"
              NumClusters="2"
              TotalNumCores="8"
-             SocIds="336,337,360,371,393"
+             SocIds="336,337,347,360,371,393"
              SynCore="1"
              CoreCtlCpu="0"
              MinCoreOnline="0"

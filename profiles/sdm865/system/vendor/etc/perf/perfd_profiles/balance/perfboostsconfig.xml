@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+/* Copyright (c) 2017 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+-->
+
+<!--Ids are used in identifying the boosts, increment ids linearly,
+    do not modify Ids, or add in between-->
+<!--follow the number format rules while specifying number, can be given
+    in any format-->
+
+<BoostConfigs>
+    <PerfBoost>
+
+    <!--app lauch boost-->
+    <Config Id="0x00001081" Type="1" Enable="true" Timeout="800" Target="kona"
+        Resources="0x40804000, 2400, 0x40804200, 2700, 0x40800000, 1600, 0x40800100, 1500, 0x40C18000, 30, 0x41000000, 3, 0x41000200, 1, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 142, 0x43000000, 68, 0x43400000, 14000" />
+
+   <!--app resume boost-->
+    <Config Id="0x00001082" Type="1" Enable="true" Timeout="400" Target="kona"
+        Resources="0x40804000, 2400, 0x40804200, 2700, 0x40800000, 1600, 0x40800100, 1500, 0x40C18000, 30, 0x41000000, 3, 0x41000200, 1, 0x42C10000, 1, 0x41444100, 1, 0x41800000, 142, 0x43000000, 68, 0x43400000, 14000" />
+
+    <!--app lauch boost sustained-->
+    <Config Id="0x00001081" Type="2" Enable="true" Timeout="2000" Target="kona"
+        Resources="0x40804000, 2200, 0x40804200, 2600, 0x40800000, 1200, 0x40800100, 1200, 0x40C18000, 10, 0x41000000, 3, 0x41800000, 80, 0x43000000, 40, 0x43400000, 14000" />
+
+    <!-- config_enableLaunchBoostv2-->
+    <Config Id="0x00001081" Type="3" Enable="true" Timeout="15000" Target="kona"
+        Resources="0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60,0x40C20200, 40, 0x40C1C200, 60" />
+
+    <!-- config_gameBoost-->
+    <Config Id="0x00001081" Type="4" Enable="true" Timeout="15000" Target="kona"
+        Resources="0x40C58000, 45, 0x40C54000, 65, 0x40408000, 99, 0x40C20000, 40, 0x40C1C000, 60,0x40C20200, 40, 0x40C1C200, 60, 0x42C10000, 1,0x40800200, 1600, 0x40800000, 1600, 0x40800100, 1200, 0x41800000, 80, 0x43000000, 58, 0x43400000, 14000" />
+
+    <!--Animation boost -->
+    <Config Id="0x00001083" Enable="true" Timeout="400" Target="kona"
+        Resources="0x40800000, 1200, 0x40800100, 1500" />
+
+    <!--Vertical Scroll boost-->
+    <Config Id="0x00001080" Type="1" Enable="true" Target="kona"
+        Resources="0x40804000, 1900, 0x40804200, 2200, 0x40800000, 1000, 0x40800100, 1000, 0x40C18000, 1, 0x40C40000, 15, 0x41800000, 80, 0x43000000, 25" />
+
+    <!--Prefling Scroll boost-->
+    <Config Id="0x00001080" Type="4" Enable="true" Timeout="80" Target="kona"
+        Resources="0x43000000, 25" />
+
+    <!--Horizontal Scroll boost-->
+    <Config Id="0x00001080" Type="2" Enable="true" Target="kona"
+        Resources="0x43000000, 25" />
+
+	<!--MTP boost-->
+    <Config Id="0x00001086" Enable="true" Target="kona"
+        Resources="0x40800000, 1200, 0x40800100, 1500, 0x41800000, 80, 0x43000000, 40" />
+
+    <!--Drag boost-->
+    <Config Id="0x00001087" Type="1" Enable="true" Timeout="0" Target="kona"
+        Resources="0x40800000, 1000, 0x40800100, 1000, 0x40C18000, 1, 0x41800000, 80, 0x43000000, 25" />
+
+    <!--PackageInstall boost-->
+    <Config Id="0x00001088" Enable="true" Target="kona"
+        Resources="0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40804200, 0xFFF, 0x40800000, 2000, 0x40800100, 1500, 0x40800200, 2000" />
+
+    <!--Rotation latency boost-->
+    <Config Id="0x00001089" Enable="true" Timeout="1500" Target="kona"
+        Resources="0x40800000, 1200, 0x40800100, 1500" />
+
+    <!--Rotation animation boost-->
+    <Config Id="0x00001090" Enable="true" Timeout="1000" Target="kona"
+        Resources="0x40800100, 1100, 0x4280C000, 500" />
+
+    <!--Performance mode-->
+    <Config Id="0x00001091" Enable="true" Target="kona"
+        Resources="0x40800000, 1000, 0x40C18000, 20" />
+
+    <!--Display on Resource -->
+    <!-- Display on resource opcode, value -->
+    <Config Id="0x00001041" Enable="true" Timeout="0" Target="kona"
+        Resources="0x40000000, 1" />
+
+    <!--Display off Resource -->
+    <!-- Display on resource opcode, value -->
+    <Config Id="0x00001040" Enable="true" Timeout="0" Target="kona"
+            Resources="0x40000000, 0x0" />
+
+    <!--XiaoMi bluetooth boost-->
+        <!-- SCHEDBOOST resource opcode, value-->
+        <!-- CPUBOOST_MAX_FREQ BIG Core resource opcode, value-->
+        <!-- CPUBOOST_MAX_FREQ LITTLE Core resource opcode, value-->
+        <!-- CPUBOOST_MAX_FREQ PRIME Core resource opcode, value-->
+        <!-- CPUBOOST_MIN_FREQ BIG Core resource opcode, value-->
+        <!-- CPUBOOST_MIN_FREQ LITTLE Core resource opcode, value-->
+        <!-- CPUBOOST_MIN_FREQ PRIME Core resource opcode, value-->
+        <!-- CPUBW_MAX_FREQ resource opcode, value-->
+        <!-- CPUBW_MIN_FREQ resource opcode, value-->
+        <!-- POWER COLLAPSE resource opcode, value-->
+        <!-- STORAGE CLK SCALING resource opcode, value-->
+        <!-- LLCC DDR LAT CPU0 MIN FREQ resource opcode, value-->
+        <!-- L3 resource opcode, value-->
+        <!-- GPU DISABLE resource opcode, value-->
+
+        <!-- Type="1", bluetooth boost of 3sec-->
+        <Config
+                Id="0x000011C0" Type="1" Enable="true" Timeout="3000" Target="kona"
+                Resources="0x40C00000, 0x1, 0x40804000, 0xFFF, 0x40804100, 0xFFF, 0x40804200, 0xFFF,
+                       0x40800000, 0xFFF, 0x40800100, 0xFFF, 0x40800200, 0xFFF, 0x41818000, 0xFF,
+                       0x41800000, 0xFF, 0x40400000, 0x1, 0x42C10000, 0x1, 0x43430100, 0x28C5,
+                       0x43400000, 0xFFFF, 0x4281C000, 2000" />
+
+    </PerfBoost>
+</BoostConfigs>

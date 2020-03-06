@@ -3,7 +3,7 @@
 # Original repo: https://github.com/yc9559/sdm855-tune/
 # Author: Matt Yang
 # Platform: sdm855
-# Version: v3 (20200222)
+# Version: v4 (20200306)
 
 # Runonce after boot, to speed up the transition of power modes in powercfg
 
@@ -28,6 +28,7 @@ lock_val "0" $ST_FORE/schedtune.sched_boost_enabled
 lock_val "0" $ST_FORE/schedtune.sched_boost_no_override
 lock_val "0" $ST_FORE/schedtune.boost
 lock_val "1" $ST_FORE/schedtune.prefer_idle
+lock_val "1" $ST_TOP/schedtune.sched_boost_enabled
 lock_val "0" $ST_TOP/schedtune.sched_boost_no_override
 
 # CFQ io scheduler takes cgroup into consideration
@@ -55,7 +56,7 @@ lock_val "0" $KSGL/force_clk_on
 lock_val "0" $KSGL/force_rail_on
 
 # treat crtc_commit as background, avoid display preemption on big
-change_task_cgroup "crtc_commit" "background" "cpuset"
+change_task_cgroup "crtc_commit" "system-background" "cpuset"
 
 # fix laggy bilibili feed scrolling
 change_task_cgroup "servicemanager" "top-app" "cpuset"
@@ -73,6 +74,9 @@ change_task_cgroup "surfaceflinger" "foreground" "stune"
 
 # reduce big cluster wakeup, eg. android.hardware.sensors@1.0-service
 change_task_affinity ".hardware." "0f"
+# ...but exclude the fingerprint&camera service for speed
+change_task_affinity ".hardware.biometrics.fingerprint" "ff"
+change_task_affinity ".hardware.camera.provider" "ff"
 
 # platform specific
 apply_once
